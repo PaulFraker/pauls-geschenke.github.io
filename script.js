@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pageId === '#services') initQuoteCalculator();
         if (pageId === '#material-showcase') initMaterialShowcase();
         if (pageId === '#customization') initCustomizationPreview();
+
+        const exploreButton = document.querySelector('.cta-button[data-navigate-to="services"]');
+        if (exploreButton) {
+            exploreButton.addEventListener('click', function() {
+                loadContent('#services');
+            });
+        }
     }
 
     // Lade Standardseite (Startseite)
