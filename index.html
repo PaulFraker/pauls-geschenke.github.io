@@ -20,7 +20,6 @@
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23F5DEB3"/><path d="M0 0h100v100H0z" fill="none" stroke="%23DEB887" stroke-width="2" stroke-dasharray="4,4"/></svg>');
         }
         .container {
             width: 90%;
@@ -29,8 +28,18 @@
             padding: 20px;
         }
         header {
-            background: var(--wood-brown);
-            color: var(--light-wood);
+            background: 
+                linear-gradient(90deg, 
+                    rgba(161, 102, 47, 0.8) 0%,
+                    rgba(141, 85, 36, 0.8) 20%,
+                    rgba(121, 68, 25, 0.8) 40%,
+                    rgba(141, 85, 36, 0.8) 60%,
+                    rgba(161, 102, 47, 0.8) 80%,
+                    rgba(181, 119, 58, 0.8) 100%
+                ),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="none" /><path d="M0 0 L200 200 M200 0 L0 200" stroke="rgba(255,255,255,0.1)" stroke-width="1" /></svg>');
+            background-size: 100% 100%, 200px 200px;
+            color: #FFF5E6;
             padding: 20px 0;
             text-align: center;
             position: relative;
@@ -136,20 +145,17 @@
         
         <div class="gallery">
             <div class="gallery-item">
-                <img src="/api/placeholder/300/250" alt="Laser engraved wooden box">
-                <div class="gallery-item-text">Personalized Keepsake Box</div>
+                                <div class="gallery-item-text">Personalized Keepsake Box</div>
             </div>
             <div class="gallery-item">
                 <img src="/api/placeholder/300/250" alt="Customized wooden photo frame">
-                <div class="gallery-item-text">Custom Wooden Photo Frame</div>
-            </div>
+                <div class="gallery-item-text">Custom Wooden Pho            </div>
             <div class="gallery-item">
                 <img src="/api/placeholder/300/250" alt="Engraved wooden coasters">
                 <div class="gallery-item-text">Set of Engraved Wooden Coasters</div>
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/300/250" alt="Personalized wooden cutting board">
-                <div class="gallery-item-text">Personalized Cutting Board</div>
+                <img src="/api/placeholder/300/250" alt="Personali                <div class="gallery-item-text">Personalized Cutting Board</div>
             </div>
         </div>
     </div>
@@ -158,8 +164,7 @@
         // Laser cursor effect
         document.addEventListener('mousemove', (e) => {
             const cursor = document.getElementById('laser-cursor');
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.clientX + '            cursor.style.top = e.clientY + 'px';
         });
 
         // Animate gallery items on scroll
@@ -170,8 +175,7 @@
                 const itemBottom = item.getBoundingClientRect().bottom;
                 if (itemTop < window.innerHeight && itemBottom > 0) {
                     item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }
+                       }
             });
         };
         window.addEventListener('scroll', animateGallery);
@@ -182,8 +186,7 @@
             targets: '.laser-beam',
             translateX: '200%',
             easing: 'linear',
-            duration: 5000,
-            loop: true
+            duration: 50            loop: true
         });
     </script>
 </body>
