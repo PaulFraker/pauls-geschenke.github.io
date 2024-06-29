@@ -16,6 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.remove('active');
             }
         });
+
+        const servicesButton = mainContent.querySelector('.cta-button[data-navigate-to="services"]');
+        if (servicesButton) {
+            servicesButton.addEventListener('click', function() {
+                loadContent('#services');
+            });
+        }
     }
 
     // Load default page (home)
@@ -62,4 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (previous JavaScript remains the same)
+
+
+
+    // ... (rest of the JavaScript remains the same)
 });
