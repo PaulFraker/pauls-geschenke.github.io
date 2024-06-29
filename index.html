@@ -3,191 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WoodLaser Creations</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <style>
-        :root {
-            --wood-brown: #8B4513;
-            --light-wood: #DEB887;
-            --laser-red: #ff3131;
-            --bg-color: #F5DEB3;
-            --text-color: #4A3728;
-        }
-        body {
-            font-family: 'Cabin', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-        header {
-            background: 
-                linear-gradient(90deg, 
-                    rgba(161, 102, 47, 0.8) 0%,
-                    rgba(141, 85, 36, 0.8) 20%,
-                    rgba(121, 68, 25, 0.8) 40%,
-                    rgba(141, 85, 36, 0.8) 60%,
-                    rgba(161, 102, 47, 0.8) 80%,
-                    rgba(181, 119, 58, 0.8) 100%
-                ),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="none" /><path d="M0 0 L200 200 M200 0 L0 200" stroke="rgba(255,255,255,0.1)" stroke-width="1" /></svg>');
-            background-size: 100% 100%, 200px 200px;
-            color: #FFF5E6;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .laser-beam {
-            position: absolute;
-            top: 50%;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background-color: var(--laser-red);
-            box-shadow: 0 0 10px 2px var(--laser-red);
-            animation: laser-engrave 5s linear infinite;
-        }
-        @keyframes laser-engrave {
-            0% { left: -100%; width: 20%; }
-            50% { width: 60%; }
-            100% { left: 100%; width: 20%; }
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-            background-color: var(--light-wood);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, var(--wood-brown), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item:hover::before {
-            opacity: 0.7;
-        }
-        .gallery-item-text {
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            right: 0;
-            padding: 10px;
-            background-color: rgba(139, 69, 19, 0.8);
-            color: var(--light-wood);
-            transition: bottom 0.3s ease;
-        }
-        .gallery-item:hover .gallery-item-text {
-            bottom: 0;
-        }
-        #laser-cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--laser-red);
-            box-shadow: 0 0 10px 2px var(--laser-red);
-            pointer-events: none;
-            z-index: 9999;
-        }
-    </style>
+    <title>LaserCraft Creations</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="laser-cursor"></div>
-    <header>
-        <div class="laser-beam"></div>
+    <nav>
         <div class="container">
-            <h1>WoodLaser Creations</h1>
+            <h1 class="logo">LaserCraft</h1>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
         </div>
-    </header>
-    
-    <div class="container">
-        <h2>Exquisite Wooden Gifts, Laser-Engraved with Love</h2>
-        <p>Discover our collection of unique, personalized wooden treasures crafted with precision laser technology.</p>
-        
-        <div class="gallery">
-            <div class="gallery-item">
-                                <div class="gallery-item-text">Personalized Keepsake Box</div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Content for each page will be loaded here -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">Twitter</a>
             </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/300/250" alt="Customized wooden photo frame">
-                <div class="gallery-item-text">Custom Wooden Pho            </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/300/250" alt="Engraved wooden coasters">
-                <div class="gallery-item-text">Set of Engraved Wooden Coasters</div>
-            </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/300/250" alt="Personali                <div class="gallery-item-text">Personalized Cutting Board</div>
-            </div>
+            <p>&copy; 2024 LaserCraft Creations. All rights reserved.</p>
         </div>
+    </footer>
+
+    <!-- Hidden content sections -->
+    <div id="page-content" style="display: none;">
+        <!-- Home Page Content -->
+        <section id="home">
+            <div class="container">
+                <h2>Welcome to LaserCraft Creations</h2>
+                <p>We bring your ideas to life with precision laser engraving. From personalized gifts to custom business solutions, we've got you covered.</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+            </div>
+        </section>
+
+        <!-- About Page Content -->
+        <section id="about">
+            <div class="container">
+                <h2>About LaserCraft Creations</h2>
+                <p>Founded in 2020, LaserCraft Creations started as a passion project and quickly grew into a thriving business. Our mission is to provide high-quality, personalized laser engraving services that exceed our customers' expectations.</p>
+                
+                <h3>Our Team</h3>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="placeholder-image.jpg" alt="John Doe">
+                        <h4>John Doe</h4>
+                        <p>Founder & Lead Designer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="placeholder-image.jpg" alt="Jane Smith">
+                        <h4>Jane Smith</h4>
+                        <p>Master Engraver</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Page Content -->
+        <section id="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>Custom Wood Engraving</h3>
+                        <p>Personalized wooden items like cutting boards, picture frames, and signs.</p>
+                        <p class="price">Starting at $29.99</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Metal Engraving</h3>
+                        <p>Durable engravings on metal surfaces for tags, plaques, and jewelry.</p>
+                        <p class="price">Starting at $39.99</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Glass Etching</h3>
+                        <p>Elegant designs etched onto glassware, mirrors, and awards.</p>
+                        <p class="price">Starting at $49.99</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Corporate Branding</h3>
+                        <p>Bulk orders for corporate gifts, name tags, and promotional items.</p>
+                        <p class="price">Custom quotes available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Page Content -->
+        <section id="gallery">
+            <div class="container">
+                <h2>Our Work</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Wooden Cutting Board">
+                        <p>Custom engraved wooden cutting board</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Metal Business Cards">
+                        <p>Laser etched metal business cards</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Glass Award">
+                        <p>Elegantly etched glass award</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Leather Wallet">
+                        <p>Personalized leather wallet</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page Content -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="contact-content">
+                    <form id="contact-form">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Phone: (123) 456-7890</p>
+                        <p>Email: info@lasercraft.com</p>
+                        <p>Address: 123 Main St, Anytown, USA 12345</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script>
-        // Laser cursor effect
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.getElementById('laser-cursor');
-            cursor.style.left = e.clientX + '            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Animate gallery items on scroll
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const animateGallery = () => {
-            galleryItems.forEach((item) => {
-                const itemTop = item.getBoundingClientRect().top;
-                const itemBottom = item.getBoundingClientRect().bottom;
-                if (itemTop < window.innerHeight && itemBottom > 0) {
-                    item.style.opacity = '1';
-                       }
-            });
-        };
-        window.addEventListener('scroll', animateGallery);
-        animateGallery(); // Initial check on page load
-
-        // Wood grain animation
-        anime({
-            targets: '.laser-beam',
-            translateX: '200%',
-            easing: 'linear',
-            duration: 50            loop: true
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
