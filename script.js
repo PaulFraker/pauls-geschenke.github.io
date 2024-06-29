@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pageId === '#home') initLaserAnimation();
         if (pageId === '#gallery') {
             initBeforeAfterSlider();
-            init3DViewer();
+            // Delay the 3D viewer initialization to ensure the DOM is updated
+            setTimeout(init3DViewer, 0);
         }
         if (pageId === '#services') initQuoteCalculator();
         if (pageId === '#material-showcase') initMaterialShowcase();
@@ -80,28 +81,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3D Produktbetrachter
     function init3DViewer() {
+        const container = document.getElementById('product-viewer');
+        if (!container) {
+            console.log('Product viewer container not found. Skipping 3D viewer initialization.');
+            return;
+        }
+    
         let scene, camera, renderer, cube;
-
+    
         scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
         renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('product-viewer').appendChild(renderer.domElement);
-
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+    
         const geometry = new THREE.BoxGeometry();
         const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
         cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
-
+    
         camera.position.z = 5;
-
+    
         function animate() {
             requestAnimationFrame(animate);
             cube.rotation.x += 0.01;
             cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
-
+    
         animate();
     }
 
