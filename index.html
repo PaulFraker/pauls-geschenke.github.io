@@ -1,27 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaserCraft Creations</title>
+    <title>Pauls-Geschenke - Lasergravur und Personalisierung</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <meta name="description" content="Pauls-Geschenke bietet hochwertige Lasergravuren auf Holz, Metall und Glas. Personalisierte Geschenke und Firmenbranding in Paderborn.">
+    <meta name="keywords" content="Lasergravur, personalisierte Geschenke, Holzgravur, Metallgravur, Glasgravur, Paderborn">
+    <meta name="author" content="Paul Dinkel">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Pauls-Geschenke - Lasergravur & Personalisierung">
+    <meta property="og:description" content="Hochwertige Lasergravuren für personalisierte Geschenke und Firmenbranding in Paderborn.">
+    <meta property="og:image" content="https://www.pauls-geschenke.de/images/logo.jpg">
+    <meta property="og:url" content="https://www.pauls-geschenke.de">
+    <meta property="og:type" content="website">
 </head>
 <body>
+    <div id="custom-cursor"></div>
+    
     <nav>
         <div class="container">
-            <h1 class="logo">LaserCraft</h1>
+            <h1 class="logo">Pauls-Geschenke</h1>
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About Us</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                <li><a href="#home" class="nav-link">Startseite</a></li>
+                <li><a href="#about" class="nav-link">Über Uns</a></li>
+                <li><a href="#services" class="nav-link">Leistungen</a></li>
+                <li><a href="#gallery" class="nav-link">Galerie</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
             </ul>
         </div>
     </nav>
 
     <main id="main-content">
-        <!-- Content for each page will be loaded here -->
+        <section id="home">
+            <div class="container">
+                <div class="laser-animation">
+                    <div class="laser-beam"></div>
+                    <h2 class="engrave-text">Pauls-Geschenke</h2>
+                </div>
+                <h2>Willkommen bei Pauls-Geschenke</h2>
+                <p>Wir erwecken Ihre Ideen mit Präzisions-Lasergravur zum Leben. Von personalisierten Geschenken bis hin zu individuellen Geschäftslösungen - wir haben alles für Sie.</p>
+                <button class="cta-button" data-navigate-to="services">Unsere Leistungen entdecken</button>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Über Pauls-Geschenke</h2>
+                <p>Gegründet im Jahr 2022, begann Pauls-Geschenke als Leidenschaftsprojekt und entwickelte sich schnell zu einem erfolgreichen Unternehmen. Unsere Mission ist es, hochwertige, personalisierte Lasergravur-Dienstleistungen anzubieten, die die Erwartungen unserer Kunden übertreffen.</p>
+                
+                <h3>Unser Team</h3>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="placeholder-image.jpg" alt="Paul Dinkel">
+                        <h4>Paul Dinkel</h4>
+                        <p>Gründer & Hauptdesigner</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Unsere Leistungen</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>Individuelle Holzgravur</h3>
+                        <p>Personalisierte Holzartikel wie Schneidebretter, Bilderrahmen und Schilder.</p>
+                        <p class="price">Ab 29,99 €</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Metallgravur</h3>
+                        <p>Dauerhafte Gravuren auf Metalloberflächen für Schilder, Plaketten und Schmuck.</p>
+                        <p class="price">Ab 39,99 €</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Glasgravur</h3>
+                        <p>Elegante Designs, geätzt auf Gläser, Spiegel und Auszeichnungen.</p>
+                        <p class="price">Ab 49,99 €</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Firmenbranding</h3>
+                        <p>Großbestellungen für Firmengeschenke, Namensschilder und Werbeartikel.</p>
+                        <p class="price">Individuelle Angebote verfügbar</p>
+                    </div>
+                </div>
+
+                <div id="quote-calculator">
+                    <h3>Erhalten Sie ein sofortiges Angebot</h3>
+                    <select id="material">
+                        <option value="wood">Holz</option>
+                        <option value="metal">Metall</option>
+                        <option value="glass">Glas</option>
+                    </select>
+                    <input type="number" id="size" placeholder="Größe in cm">
+                    <select id="complexity">
+                        <option value="simple">Einfach</option>
+                        <option value="medium">Mittel</option>
+                        <option value="complex">Komplex</option>
+                    </select>
+                    <button onclick="calculateQuote()">Angebot berechnen</button>
+                    <p id="quote-result"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2>Unsere Arbeiten</h2>
+                <div class="before-after-slider">
+                    <img class="before-image" src="before-image.jpg" alt="Vor der Gravur">
+                    <img class="after-image" src="after-image.jpg" alt="Nach der Gravur">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="before-after-range">
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Graviertes Holzbrett">
+                        <p>Individuell graviertes Holzbrett</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Metall-Visitenkarten">
+                        <p>Lasergravierte Metall-Visitenkarten</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Glasauszeichnung">
+                        <p>Elegant geätzte Glasauszeichnung</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="placeholder-image.jpg" alt="Ledergeldbörse">
+                        <p>Personalisierte Ledergeldbörse</p>
+                    </div>
+                </div>
+                <div id="product-viewer"></div>
+            </div>
+        </section>
+
+        <section id="material-showcase">
+            <div class="container">
+                <h2>Materialvorschau</h2>
+                <div class="material-showcase">
+                    <div class="material" data-material="wood">Holz</div>
+                    <div class="material" data-material="metal">Metall</div>
+                    <div class="material" data-material="glass">Glas</div>
+                    <div id="material-preview">
+                        <img src="default-engraving.jpg" alt="Gravur-Vorschau">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="customization">
+            <div class="container">
+                <h2>Personalisierungsvorschau</h2>
+                <div id="customization-preview">
+                    <input type="text" id="custom-text" placeholder="Geben Sie Ihren Text ein">
+                    <select id="font-select">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier">Courier</option>
+                    </select>
+                    <div id="preview-area">
+                        <img src="blank-product.jpg" alt="Leeres Produkt">
+                        <p id="preview-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Kontaktieren Sie uns</h2>
+                <div class="contact-content">
+                    <form id="contact-form">
+                        <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                        <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
+                        <input type="text" id="subject" name="subject" placeholder="Betreff" required>
+                        <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
+                        <button type="submit">Nachricht senden</button>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Kontaktdaten</h3>
+                        <p>Telefon: +49 123 456789</p>
+                        <p>E-Mail: info@pauls-geschenke.de</p>
+                        <p>Adresse: Nordstraße 27, 33102 Paderborn</p>
+                    </div>
+                </div>
+
+                <div id="booking-system">
+                    <h3>Buchen Sie eine Beratung</h3>
+                    <input type="date" id="booking-date">
+                    <select id="booking-time">
+                        <option value="9:00">9:00 Uhr</option>
+                        <option value="10:00">10:00 Uhr</option>
+                        <option value="11:00">11:00 Uhr</option>
+                        <option value="13:00">13:00 Uhr</option>
+                        <option value="14:00">14:00 Uhr</option>
+                        <option value="15:00">15:00 Uhr</option>
+                    </select>
+                    <input type="text" id="booking-name" placeholder="Ihr Name">
+                    <input type="email" id="booking-email" placeholder="Ihre E-Mail">
+                    <button onclick="bookAppointment()">Jetzt buchen</button>
+                </div>
+
+                <div id="order-progress">
+                    <h3>Auftragsstatus</h3>
+                    <input type="text" id="order-id" placeholder="Auftragsnummer eingeben">
+                    <button onclick="checkOrderStatus()">Status prüfen</button>
+                    <div id="progress-bar-container">
+                        <div id="progress-bar"></div>
+                    </div>
+                    <p id="order-status"></p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -31,119 +225,9 @@
                 <a href="#" class="social-icon">Instagram</a>
                 <a href="#" class="social-icon">Twitter</a>
             </div>
-            <p>&copy; 2024 LaserCraft Creations. All rights reserved.</p>
+            <p>&copy; 2024 Pauls-Geschenke. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
-
-    <!-- Hidden content sections -->
-    <div id="page-content" style="display: none;">
-        <!-- Home Page Content -->
-        <section id="home">
-            <div class="container">
-                <h2>Welcome to LaserCraft Creations</h2>
-                <p>We bring your ideas to life with precision laser engraving. From personalized gifts to custom business solutions, we've got you covered.</p>
-                <button class="cta-button" data-navigate-to="services">Explore Our Services</button>
-            </div>
-        </section>
-
-        <!-- About Page Content -->
-        <section id="about">
-            <div class="container">
-                <h2>About LaserCraft Creations</h2>
-                <p>Founded in 2020, LaserCraft Creations started as a passion project and quickly grew into a thriving business. Our mission is to provide high-quality, personalized laser engraving services that exceed our customers' expectations.</p>
-                
-                <h3>Our Team</h3>
-                <div class="team-members">
-                    <div class="team-member">
-                        <img src="placeholder-image.jpg" alt="John Doe">
-                        <h4>John Doe</h4>
-                        <p>Founder & Lead Designer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="placeholder-image.jpg" alt="Jane Smith">
-                        <h4>Jane Smith</h4>
-                        <p>Master Engraver</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Page Content -->
-        <section id="services">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h3>Custom Wood Engraving</h3>
-                        <p>Personalized wooden items like cutting boards, picture frames, and signs.</p>
-                        <p class="price">Starting at $29.99</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Metal Engraving</h3>
-                        <p>Durable engravings on metal surfaces for tags, plaques, and jewelry.</p>
-                        <p class="price">Starting at $39.99</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Glass Etching</h3>
-                        <p>Elegant designs etched onto glassware, mirrors, and awards.</p>
-                        <p class="price">Starting at $49.99</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Corporate Branding</h3>
-                        <p>Bulk orders for corporate gifts, name tags, and promotional items.</p>
-                        <p class="price">Custom quotes available</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Page Content -->
-        <section id="gallery">
-            <div class="container">
-                <h2>Our Work</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="placeholder-image.jpg" alt="Wooden Cutting Board">
-                        <p>Custom engraved wooden cutting board</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="placeholder-image.jpg" alt="Metal Business Cards">
-                        <p>Laser etched metal business cards</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="placeholder-image.jpg" alt="Glass Award">
-                        <p>Elegantly etched glass award</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="placeholder-image.jpg" alt="Leather Wallet">
-                        <p>Personalized leather wallet</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Page Content -->
-        <section id="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <div class="contact-content">
-                    <form id="contact-form">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p>Phone: (123) 456-7890</p>
-                        <p>Email: info@lasercraft.com</p>
-                        <p>Address: 123 Main St, Anytown, USA 12345</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 
     <script src="script.js"></script>
 </body>
