@@ -252,3 +252,144 @@ footer {
         margin: 10px 0;
     }
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation styles */
+nav {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main content styles */
+main {
+    padding: 2r}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+/* Laser Animation */
+.laser-animation {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+}
+
+.laser-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: red;
+    box-shadow: 0 0 10px 2px red;
+}
+
+.engrave-text {
+    font-size: 48px;
+    color: transparent;
+    -webkit-text-stroke: 1px #333;
+}
+
+/* About Page */
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Services Page */
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-item {
+    background: #f4f4f4;
+    padding: 1re    border-radius: 5px;
+}
+
+.price {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* Quote Calculator */
+#quote-calculator {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+#quote-calculator input,
+#quote-calculator select,
+#quote-calculator button {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
