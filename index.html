@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pauls-Geschenke - Lasergravur und Personalisierung</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <meta name="description" content="Pauls-Geschenke bietet hochwertige Lasergravuren auf Holz, Metall und Glas. Personalisierte Geschenke und Firmenbranding in Paderborn.">
     <meta name="keywords" content="Lasergravur, personalisierte Geschenke, Holzgravur, Metallgravur, Glasgravur, Paderborn">
     <meta name="author" content="Paul Dinkel">
@@ -18,11 +18,16 @@
     <meta property="og:type" content="website">
 </head>
 <body>
-    <div id="custom-cursor"></div>
+    <div id="custom-cursor" aria-hidden="true"></div>
     
     <nav>
         <div class="container">
             <h1 class="logo">Pauls-Geschenke</h1>
+            <button id="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link">Startseite</a></li>
                 <li><a href="#about" class="nav-link">Über Uns</a></li>
@@ -39,12 +44,7 @@
 
     <footer>
         <div class="container">
-            <!-- <div class="social-links">
-                <a href="#" class="social-icon">Facebook</a>
-                <a href="#" class="social-icon">Instagram</a>
-                <a href="#" class="social-icon">Twitter</a>
-            </div> -->
-            <p>&copy; 2024 Pauls-Geschenke. Alle Rechte vorbehalten.</p>
+            <p>&copy; <span id="current-year"></span> Pauls-Geschenke. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -102,24 +102,6 @@
                         <p class="price">Individuelle Angebote verfügbar</p>
                     </div>
                 </div>
-<!--
-                <div id="quote-calculator">
-                    <h3>Erhalten Sie ein sofortiges Angebot</h3>
-                    <select id="material">
-                        <option value="wood">Holz</option>
-                        <option value="metal">Metall</option>
-                        <option value="glass">Glas</option>
-                    </select>
-                    <input type="number" id="size" placeholder="Größe in cm">
-                    <select id="complexity">
-                        <option value="simple">Einfach</option>
-                        <option value="medium">Mittel</option>
-                        <option value="complex">Komplex</option>
-                    </select>
-                    <button onclick="calculateQuote()">Angebot berechnen</button>
-                    <p id="quote-result"></p>
-                </div>
---->
             </div>
         </section>
 
@@ -127,13 +109,13 @@
             <div class="container">
                 <h2>Unsere Arbeiten</h2>
                 <div class="before-after-slider">
-                    <img class="before-image" src="img\before.jpg" alt="Vor der Gravur">
-                    <img class="after-image" src="img\after.jpg" alt="Nach der Gravur">
+                    <img class="before-image" src="img/before.jpg" alt="Vor der Gravur">
+                    <img class="after-image" src="img/after.jpg" alt="Nach der Gravur">
                     <input type="range" min="0" max="100" value="50" class="slider" id="before-after-range">
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="img\brettchen.png" alt="Graviertes Holzbrett">
+                        <img src="img/brettchen.png" alt="Graviertes Holzbrett" loading="lazy">
                         <p>Individuell graviertes Holzbrett</p>
                     </div>
                     <div class="gallery-item">
@@ -157,13 +139,6 @@
             <div class="container">
                 <h2>Kontaktieren Sie uns</h2>
                 <div class="contact-content">
-                    <!-- <form id="contact-form">
-                        <input type="text" id="name" name="name" placeholder="Ihr Name" required>
-                        <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
-                        <input type="text" id="subject" name="subject" placeholder="Betreff" required>
-                        <textarea id="message" name="message" placeholder="Ihre Nachricht" required></textarea>
-                        <button type="submit">Nachricht senden</button>
-                    </form> -->
                     <div class="contact-info">
                         <h3>Kontaktdaten</h3>
                         <p>Telefon: +49...xx.x.xx.</p>
@@ -171,32 +146,6 @@
                         <p>Adresse: Nordstraße 27, 33102 Paderborn</p>
                     </div>
                 </div>
-<!-- 
-                <div id="booking-system">
-                    <h3>Buchen Sie eine Beratung</h3>
-                    <input type="date" id="booking-date">
-                    <select id="booking-time">
-                        <option value="9:00">9:00 Uhr</option>
-                        <option value="10:00">10:00 Uhr</option>
-                        <option value="11:00">11:00 Uhr</option>
-                        <option value="13:00">13:00 Uhr</option>
-                        <option value="14:00">14:00 Uhr</option>
-                        <option value="15:00">15:00 Uhr</option>
-                    </select>
-                    <input type="text" id="booking-name" placeholder="Ihr Name">
-                    <input type="email" id="booking-email" placeholder="Ihre E-Mail">
-                    <button onclick="bookAppointment()">Jetzt buchen</button>
-                </div> -->
-
-                <!-- <div id="order-progress">
-                    <h3>Auftragsstatus</h3>
-                    <input type="text" id="order-id" placeholder="Auftragsnummer eingeben">
-                    <button onclick="checkOrderStatus()">Status prüfen</button>
-                    <div id="progress-bar-container">
-                        <div id="progress-bar"></div>
-                    </div>
-                    <p id="order-status"></p>
-                </div> -->
             </div>
         </section>
     </div>
