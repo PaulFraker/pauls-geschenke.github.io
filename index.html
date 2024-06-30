@@ -11,7 +11,6 @@
     <meta name="author" content="Paul Dinkel">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph tags for social media sharing -->
     <meta property="og:title" content="Pauls-Geschenke - Lasergravur & Personalisierung">
     <meta property="og:description" content="Hochwertige Lasergravuren für personalisierte Geschenke und Firmenbranding in Paderborn.">
     <meta property="og:image" content="https://www.pauls-geschenke.de/images/logo.jpg">
@@ -35,6 +34,21 @@
     </nav>
 
     <main id="main-content">
+        <!-- Content will be loaded here dynamically -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">Twitter</a>
+            </div>
+            <p>&copy; 2024 Pauls-Geschenke. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <div id="page-content" style="display: none;">
         <section id="home">
             <div class="container">
                 <div class="laser-animation">
@@ -138,38 +152,6 @@
             </div>
         </section>
 
-        <section id="material-showcase">
-            <div class="container">
-                <h2>Materialvorschau</h2>
-                <div class="material-showcase">
-                    <div class="material" data-material="wood">Holz</div>
-                    <div class="material" data-material="metal">Metall</div>
-                    <div class="material" data-material="glass">Glas</div>
-                    <div id="material-preview">
-                        <img src="default-engraving.jpg" alt="Gravur-Vorschau">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="customization">
-            <div class="container">
-                <h2>Personalisierungsvorschau</h2>
-                <div id="customization-preview">
-                    <input type="text" id="custom-text" placeholder="Geben Sie Ihren Text ein">
-                    <select id="font-select">
-                        <option value="Arial">Arial</option>
-                        <option value="Times New Roman">Times New Roman</option>
-                        <option value="Courier">Courier</option>
-                    </select>
-                    <div id="preview-area">
-                        <img src="blank-product.jpg" alt="Leeres Produkt">
-                        <p id="preview-text"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="contact">
             <div class="container">
                 <h2>Kontaktieren Sie uns</h2>
@@ -216,18 +198,7 @@
                 </div>
             </div>
         </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#" class="social-icon">Facebook</a>
-                <a href="#" class="social-icon">Instagram</a>
-                <a href="#" class="social-icon">Twitter</a>
-            </div>
-            <p>&copy; 2024 Pauls-Geschenke. Alle Rechte vorbehalten.</p>
-        </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>

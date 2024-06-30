@@ -1,39 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Navigation und Inhaltswechsel
     const mainContent = document.getElementById('main-content');
     const navLinks = document.querySelectorAll('.nav-link');
+    const pageContent = document.getElementById('page-content');
     
     function loadContent(pageId) {
-        const content = document.querySelector(pageId);
+        const content = pageContent.querySelector(pageId);
         if (content) {
             mainContent.innerHTML = content.innerHTML;
-        }
 
-        // Aktualisiere aktiven Navigationslink
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === pageId) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-
-        // Initialisiere spezifische Funktionen für die geladene Seite
-        if (pageId === '#home') initLaserAnimation();
-        if (pageId === '#gallery') {
-            initBeforeAfterSlider();
-            // Delay the 3D viewer initialization to ensure the DOM is updated
-            setTimeout(init3DViewer, 0);
-        }
-        if (pageId === '#services') initQuoteCalculator();
-        if (pageId === '#material-showcase') initMaterialShowcase();
-        if (pageId === '#customization') initCustomizationPreview();
-
-        const exploreButton = document.querySelector('.cta-button[data-navigate-to="services"]');
-        if (exploreButton) {
-            exploreButton.addEventListener('click', function() {
-                loadContent('#services');
+            // Aktualisiere aktiven Navigationslink
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === pageId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             });
+
+            // Initialisiere spezifische Funktionen für die geladene Seite
+            if (pageId === '#home') initLaserAnimation();
+            if (pageId === '#gallery') {
+                initBeforeAfterSlider();
+                setTimeout(init3DViewer, 0);
+            }
+            if (pageId === '#services') initQuoteCalculator();
+            if (pageId === '#material-showcase') initMaterialShowcase();
+            if (pageId === '#customization') initCustomizationPreview();
+
+            // Handle "Explore Our Services" button
+            const exploreButton = document.querySelector('.cta-button[data-navigate-to="services"]');
+            if (exploreButton) {
+                exploreButton.addEventListener('click', function() {
+                    loadContent('#services');
+                });
+            }
         }
     }
 

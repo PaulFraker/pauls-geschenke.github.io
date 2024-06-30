@@ -1,0 +1,37 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $date = $_POST["date"];
+    $time = $_POST["time"];
+    $name = strip_tags(trim($_POST["name"]));
+    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+
+    if (empty($date) || empty($time) || empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        http_response_code(400);
+        echo "Bitte füllen Sie alle Felder korrekt aus.";
+        exit;
+    }
+
+    // Here you would typically save this information to a database
+    // For this example, we'll just send an email
+    $recipient = "bookings@pauls-geschenke.de";
+    $subject = "Neue Buchungsanfrage";
+    $email_content = "Neue Buchung:\n";
+    $email_content .= "Datum: $date\n";
+    $email_content .= "Zeit: $time\n";
+    $email_content .= "Name: $name\n";
+    $email_content .= "Email: $email\n";
+
+    $email_headers = "From: $name <$email>";
+
+    if (mail($recipient, $subject, $email_content, $email_headers)) {
+        http_response_code(200);
+        echo "Vielen Dank! Ihre Buchungsanfrage wurde gesendet.";
+    } else {
+        http_response_code(500);
+        echo "Oops! Etwas ist schief gelaufen, die Buchung konnte nicht gesendet werden.";
+    }
+} else {
+    http_response_code(403);
+    echo "Es gab ein Problem mit Ihrer Anfrage. Bitte versuchen Sie es erneut.";
+}
+?>
