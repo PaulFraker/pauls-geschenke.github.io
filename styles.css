@@ -70,24 +70,12 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links a.active {
     color: var(--primary-color);
 }
 
 .nav-toggle {
     display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-color);
-    margin: 5px 0;
-    transition: 0.3s;
 }
 
 .hero {
@@ -137,6 +125,12 @@ body {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     opacity: 0.1;
     z-index: -1;
+    animation: pulse 5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.05; }
+    100% { opacity: 0.15; }
 }
 
 .section {
@@ -242,6 +236,18 @@ body {
 @media (max-width: 768px) {
     .nav-toggle {
         display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px 0;
+        transition: 0.3s;
     }
 
     .nav-links {
@@ -285,144 +291,25 @@ body {
     }
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-out;
-}
-
-@keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.slide-in-left {
-    animation: slideInFromLeft 0.5s ease-out;
-}
-
 /* Accessibility improvements */
 .visually-hidden {
     position: absolute !important;
     height: 1px;
     width: 1px;
     overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
 }
 
-/* Focus styles for keyboard navigation */
 a:focus, button:focus, input:focus, textarea:focus {
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
 }
 
-/* Additional styles for better visual hierarchy */
-.section:nth-child(even) {
-    background-color: #f0f0f0;
-}
-
-.service-item h3, .gallery-item p {
-    color: var(--secondary-color);
-    margin-bottom: 10px;
-}
-
-/* Smooth scrolling for anchor links */
+/* Smooth scrolling */
 html {
     scroll-behavior: smooth;
-}
-
-/* Improved button styles */
-.cta-button, .submit-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: 2px solid var(--primary-color);
-}
-
-.cta-button:hover, .submit-button:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-}
-
-/* Improved form styles */
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.contact-form textarea {
-    min-height: 150px;
-}
-
-/* Hover effect for gallery items */
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-item p {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover p {
-    transform: translateY(0);
-}
-
-/* Responsive typography */
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
 }
 
 /* Print styles */
