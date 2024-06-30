@@ -3,84 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pauls-Geschenke - Lasergravur und Personalisierung</title>
+    <title>Pauls-Geschenke | Präzision in Lasergravur</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-    <meta name="description" content="Pauls-Geschenke bietet hochwertige Lasergravuren auf Holz, Metall und Glas. Personalisierte Geschenke und Firmenbranding in Paderborn.">
-    <meta name="keywords" content="Lasergravur, personalisierte Geschenke, Holzgravur, Metallgravur, Glasgravur, Paderborn">
-    <meta name="author" content="Paul Dinkel">
-    <meta name="robots" content="index, follow">
-    
-    <meta property="og:title" content="Pauls-Geschenke - Lasergravur & Personalisierung">
-    <meta property="og:description" content="Hochwertige Lasergravuren für personalisierte Geschenke und Firmenbranding in Paderborn.">
-    <meta property="og:image" content="https://www.pauls-geschenke.de/images/logo.jpg">
-    <meta property="og:url" content="https://www.pauls-geschenke.de">
-    <meta property="og:type" content="website">
 </head>
 <body>
-    <div id="custom-cursor" aria-hidden="true"></div>
-    
-    <nav>
+    <header class="header">
         <div class="container">
-            <h1 class="logo">Pauls-Geschenke</h1>
-            <button id="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link">Startseite</a></li>
-                <li><a href="#about" class="nav-link">Über Uns</a></li>
-                <li><a href="#services" class="nav-link">Leistungen</a></li>
-                <li><a href="#gallery" class="nav-link">Galerie</a></li>
-                <li><a href="#contact" class="nav-link">Kontakt</a></li>
-            </ul>
+            <nav class="nav">
+                <a href="#home" class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="#FF4136"/>
+                        <path d="M20 10V30M10 20H30" stroke="white" stroke-width="2"/>
+                    </svg>
+                    Pauls-Geschenke
+                </a>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Über Uns</a></li>
+                    <li><a href="#services">Leistungen</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main id="main-content">
-        <!-- Content will be loaded here dynamically -->
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Pauls-Geschenke. Alle Rechte vorbehalten.</p>
-        </div>
-    </footer>
-
-    <div id="page-content" style="display: none;">
-        <section id="home">
+    <main>
+        <section id="home" class="hero">
             <div class="container">
-                <div class="laser-animation">
-                    <div class="laser-beam"></div>
-                    <h2 class="engrave-text">Pauls-Geschenke</h2>
-                </div>
-                <h2>Willkommen bei Pauls-Geschenke</h2>
-                <p>Wir erwecken Ihre Ideen mit Präzisions-Lasergravur zum Leben. Von personalisierten Geschenken bis hin zu individuellen Geschäftslösungen - wir haben alles für Sie.</p>
-                <button class="cta-button" data-navigate-to="services">Unsere Leistungen entdecken</button>
+                <h1 class="hero-title">Präzision trifft Kreativität</h1>
+                <p class="hero-subtitle">Lasergravuren, die Ihre Vorstellung übertreffen</p>
+                <a href="#services" class="cta-button">Entdecken Sie unsere Leistungen</a>
             </div>
+            <div class="laser-animation"></div>
         </section>
 
-        <section id="about">
+        <section id="about" class="section">
             <div class="container">
-                <h2>Über Pauls-Geschenke</h2>
+                <h2 class="section-title">Über Pauls-Geschenke</h2>
                 <p>Gegründet im Jahr 2023, begann Pauls-Geschenke als Leidenschaftsprojekt und entwickelte sich schnell zu einem erfolgreichen Unternehmen. Unsere Mission ist es, hochwertige, personalisierte Lasergravur-Dienstleistungen anzubieten, die die Erwartungen unserer Kunden übertreffen.</p>
-                
-                <h3>Unser Team</h3>
-                <div class="team-members">
-                    <div class="team-member">
-                        <img src="placeholder-image.jpg" alt="Paul Dinkel">
-                        <h4>Paul Dinkel</h4>
-                        <p>Gründer & Hauptdesigner</p>
-                    </div>
+                <div class="team-member">
+                    <img src="img/paul-dinkel.jpg" alt="Paul Dinkel" class="team-photo">
+                    <h3>Paul Dinkel</h3>
+                    <p>Gründer & Hauptdesigner</p>
                 </div>
             </div>
         </section>
 
-        <section id="services">
+        <section id="services" class="section">
             <div class="container">
-                <h2>Unsere Leistungen</h2>
-                <div class="service-list">
+                <h2 class="section-title">Unsere Leistungen</h2>
+                <div class="services-grid">
                     <div class="service-item">
                         <h3>Individuelle Holzgravur</h3>
                         <p>Personalisierte Holzartikel wie Schneidebretter, Bilderrahmen und Schilder.</p>
@@ -105,39 +85,33 @@
             </div>
         </section>
 
-        <section id="gallery">
+        <section id="gallery" class="section">
             <div class="container">
-                <h2>Unsere Arbeiten</h2>
-                <div class="before-after-slider">
-                    <img class="before-image" src="img/before.jpg" alt="Vor der Gravur">
-                    <img class="after-image" src="img/after.jpg" alt="Nach der Gravur">
-                    <input type="range" min="0" max="100" value="50" class="slider" id="before-after-range">
-                </div>
+                <h2 class="section-title">Unsere Arbeiten</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="img/brettchen.png" alt="Graviertes Holzbrett" loading="lazy">
                         <p>Individuell graviertes Holzbrett</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="placeholder-image.jpg" alt="Metall-Visitenkarten">
+                        <img src="img/visitenkarten.jpg" alt="Metall-Visitenkarten" loading="lazy">
                         <p>Lasergravierte Metall-Visitenkarten</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="placeholder-image.jpg" alt="Glasauszeichnung">
+                        <img src="img/glasauszeichnung.jpg" alt="Glasauszeichnung" loading="lazy">
                         <p>Elegant geätzte Glasauszeichnung</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="placeholder-image.jpg" alt="Ledergeldbörse">
+                        <img src="img/lederboerse.jpg" alt="Ledergeldbörse" loading="lazy">
                         <p>Personalisierte Ledergeldbörse</p>
                     </div>
                 </div>
-                <div id="product-viewer"></div>
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="section">
             <div class="container">
-                <h2>Kontaktieren Sie uns</h2>
+                <h2 class="section-title">Kontaktieren Sie uns</h2>
                 <div class="contact-content">
                     <div class="contact-info">
                         <h3>Kontaktdaten</h3>
@@ -145,10 +119,22 @@
                         <p>E-Mail: pauls-geschenke@web.de</p>
                         <p>Adresse: Nordstraße 27, 33102 Paderborn</p>
                     </div>
+                    <form class="contact-form">
+                        <input type="text" name="name" placeholder="Ihr Name" required>
+                        <input type="email" name="email" placeholder="Ihre E-Mail" required>
+                        <textarea name="message" placeholder="Ihre Nachricht" required></textarea>
+                        <button type="submit" class="submit-button">Nachricht senden</button>
+                    </form>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Pauls-Geschenke. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
