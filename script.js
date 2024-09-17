@@ -11,6 +11,116 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinksContainer.classList.toggle('show');
     });
 
+    // Array of product objects
+    const products = [
+        {
+            id: 1,
+            name: 'Individuelle Holzgravur',
+            description: 'Personalisierte Holzartikel wie Schneidebretter, Bilderrahmen und Schilder.',
+            price: 29.99,
+            image: 'img/product1.jpg'
+        },
+        {
+            id: 2,
+            name: 'Metallgravur',
+            description: 'Dauerhafte Gravuren auf Metalloberflächen für Schilder, Plaketten und Schmuck.',
+            price: 39.99,
+            image: 'img/product2.jpg'
+        },
+        {
+            id: 3,
+            name: 'Glasgravur',
+            description: 'Elegante Designs, geätzt auf Gläser, Spiegel und Auszeichnungen.',
+            price: 49.99,
+            image: 'img/product3.jpg'
+        },
+        // Add more products as needed
+    ];
+
+    // Function to render products to the page
+    function loadProducts() {
+        const productList = document.getElementById('product-list');
+        products.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+            productItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <p class="price">€${product.price.toFixed(2)}</p>
+                <a href="#" class="buy-button" data-id="${product.id}">Jetzt kaufen</a>
+            `;
+            productList.appendChild(productItem);
+        });
+    }
+    let cart = [];
+
+    // Function to add product to cart
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        const cartItem = cart.find(item => item.id === productId);
+    
+        if (cartItem) {
+            cartItem.quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+    
+        updateCartDisplay();
+        saveCart();
+    }
+    
+    // Function to update cart display
+    function updateCartDisplay() {
+        const cartItems = document.getElementById('cart-items');
+        cartItems.innerHTML = '';
+        let total = 0;
+    
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+            const cartItem = document.createElement('div');
+            cartItem.innerHTML = `
+                <p>${item.name} (x${item.quantity}) - €${(item.price * item.quantity).toFixed(2)}</p>
+            `;
+            cartItems.appendChild(cartItem);
+        });
+    
+        document.getElementById('cart-total').innerText = `Gesamt: €${total.toFixed(2)}`;
+    }
+    
+    // Function to save cart to localStorage
+    function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    
+    // Function to load cart from localStorage
+    function loadCart() {
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            cart = JSON.parse(savedCart);
+            updateCartDisplay();
+        }
+    }
+    
+    // Handle buy button clicks
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('buy-button')) {
+            e.preventDefault();
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            addToCart(productId);
+        }
+    });
+    
+    // Load the cart when the page loads
+    window.onload = () => {
+        loadProducts();
+        loadCart();
+    };
+    
+// Load products when the page is loaded
+window.onload = loadProducts;
+
+
     // Handle navigation and smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
