@@ -152,6 +152,39 @@ body {
     margin-bottom: 10px;
 }
 
+/* Style for the cart icon */
+.cart-icon {
+    position: relative;
+    margin-left: auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon a {
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.cart-icon a:hover {
+    color: #ff4136;
+}
+
+/* Style for the cart item count */
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    background-color: #ff4136;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+
 .product-item h3 {
     margin: 10px 0;
 }

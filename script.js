@@ -71,22 +71,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Function to update cart display
+// Function to update cart display
     function updateCartDisplay() {
         const cartItems = document.getElementById('cart-items');
         cartItems.innerHTML = '';
         let total = 0;
-    
+        let itemCount = 0; // New variable to keep track of the number of items
+
         cart.forEach(item => {
             total += item.price * item.quantity;
+            itemCount += item.quantity; // Increment item count based on quantity
             const cartItem = document.createElement('div');
             cartItem.innerHTML = `
                 <p>${item.name} (x${item.quantity}) - €${(item.price * item.quantity).toFixed(2)}</p>
             `;
             cartItems.appendChild(cartItem);
         });
-    
+
         document.getElementById('cart-total').innerText = `Gesamt: €${total.toFixed(2)}`;
+
+        // Update the cart count in the header
+        document.getElementById('cart-count').innerText = itemCount;
     }
+
+
     
     // Function to save cart to localStorage
     function saveCart() {
